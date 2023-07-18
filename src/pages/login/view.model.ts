@@ -11,13 +11,11 @@ export default function useLoginViewModel() {
         try {
             setLoading(true);
 
-            const response = await login({ email, password });
-
-            console.log(response);
+            return await login({ email, password });
         } catch (error) {
             console.error(error);
-            
-            Alert.alert("Algo deu errado!");
+
+            Alert.alert("Login error! Check the credentials.");
         } finally {
             setLoading(false);
         }
